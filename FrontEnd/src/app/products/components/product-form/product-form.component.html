@@ -1,0 +1,116 @@
+<h2 mat-dialog-title>{{title}}</h2>
+
+<mat-dialog-content>
+
+    <form id="MainForm" [formGroup]="MainForm" (ngSubmit)="OnFormSubmit()">
+        <div class="form-group">
+            <label for="ProductName">Name</label>
+            <input type="text" class="form-control" id="ProductName" name="ProductName" formControlName="name">
+
+            <span *ngIf="name.touched && name.invalid">
+        <small *ngIf="name.hasError('required')" class="form-text text-danger">Required Input, please inpue a
+          value</small>
+        <small *ngIf="name.hasError('minlength')" class="form-text text-danger">must be not less than 3 </small>
+        <small *ngIf="name.hasError('maxlength')" class="form-text text-danger">must be not more than 50 </small>
+      </span>
+
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <textarea class="form-control" id="Description" name="Description" formControlName="description" rows="3"></textarea>
+            <span *ngIf="description.touched && description.invalid">
+        <small *ngIf="description.hasError('required')" class="form-text text-danger">Required Input, please inpue a
+          value</small>
+        <small *ngIf="description.hasError('minlength')" class="form-text text-danger">must be not less than 3 </small>
+        <small *ngIf="description.hasError('maxlength')" class="form-text text-danger">must be not more than 200
+        </small>
+      </span>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="Price">Price (USD) </label>
+                    <input type="number" class="form-control" name="Price" formControlName="price" id="Price">
+
+
+                    <span *ngIf="price.touched && price.invalid">
+            <small *ngIf="price.hasError('required')" class="form-text text-danger">Required Input, please inpue a
+              value</small>
+            <small *ngIf="price.hasError('min')" class="form-text text-danger">must be not less than 1 </small>
+          </span>
+
+                </div>
+
+            </div>
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="MASS">MASS (KG) </label>
+                    <input type="number" class="form-control" name="MASS" formControlName="massValue" id="MASS">
+
+                    <span *ngIf="massValue.touched && massValue.invalid">
+            <small *ngIf="massValue.hasError('required')" class="form-text text-danger">Required Input, please inpue a
+              value</small>
+            <small *ngIf="massValue.hasError('min')" class="form-text text-danger">must be not less than 1 </small>
+          </span>
+                </div>
+
+            </div>
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="stock">stock</label>
+                    <input type="number" class="form-control" name="numberInStock" formControlName="numberInStock" id="stock">
+
+                    <span *ngIf="numberInStock.touched && numberInStock.invalid">
+            <small *ngIf="numberInStock.hasError('required')" class="form-text text-danger">Required Input, please inpue
+              a
+              value</small>
+            <small *ngIf="numberInStock.hasError('min')" class="form-text text-danger">must be not less than 1 </small>
+          </span>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        <!-- <button type="submit" [disabled]="!MainForm.valid" class="btn btn-primary">Submit</button> -->
+    </form>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="mx-auto">
+    <button class="btn btn-outline-secondary mx-2" (click)="CloseModal(false)">Close</button>
+    <button [disabled]="!MainForm.valid" type="submit" form="MainForm" class="btn btn-outline-primary">Save</button>
+</mat-dialog-actions>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+    <div class="col-3  mx-md-5">
+        <input (click)="CloseModal()" type="button" value="Cancel" class="btn btn-outline-secondary" name="cancel" />
+    </div>
+
+
+</div> -->

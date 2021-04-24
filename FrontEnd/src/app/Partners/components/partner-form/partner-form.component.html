@@ -1,0 +1,104 @@
+<h2 mat-dialog-title>{{title}}</h2>
+
+<mat-dialog-content>
+
+    <form id="MainForm" [formGroup]="MainForm" (ngSubmit)="OnFormSubmit()">
+
+        <div class="row mb-3 p-3 border rounded bg-light">
+
+            <div class="form-group col-12 ">
+                <label for="PartnerName">Name</label>
+                <input type="text" class="form-control" id="PartnerName" name="PartnerName" formControlName="name">
+
+                <span *ngIf="name.touched && name.invalid">
+          <small *ngIf="name.hasError('required')" class="form-text text-danger">Required Input, please inpue a
+            value</small>
+          <small *ngIf="name.hasError('minlength')" class="form-text text-danger">must be not less than 3 </small>
+          <small *ngIf="name.hasError('maxlength')" class="form-text text-danger">must be not more than 50 </small>
+        </span>
+
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row   p-3 border rounded bg-light">
+            <label class="h6 mb-3 form-row">Company Address</label>
+            <div class="form-group col-12">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" name="country" formControlName="country" />
+                <span *ngIf="country.touched && country.invalid">
+          <small *ngIf="country.hasError('required')" class="form-text text-danger">Required Input, please inpue a
+            value</small>
+          <small *ngIf="country.hasError('minlength')" class="form-text text-danger">must be not less than 3 </small>
+          <small *ngIf="country.hasError('maxlength')" class="form-text text-danger">must be not more than 50
+          </small>
+        </span>
+            </div>
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="zipCode">zipCode </label>
+                    <input type="number" class="form-control" name="zipCode" formControlName="zipCode" id="zipCode">
+
+
+                    <span *ngIf="zipCode.touched && zipCode.invalid">
+            <small *ngIf="zipCode.hasError('required')" class="form-text text-danger">Required Input, please inpue a
+              value</small>
+            <small *ngIf="zipCode.hasError('min')" class="form-text text-danger">must be not less than 1 </small>
+          </span>
+
+                </div>
+
+            </div>
+
+            <div class="col-8">
+                <div class="form-group">
+                    <label for="city">City </label>
+                    <input type="text" class="form-control" name="city" formControlName="city" id="city">
+
+                    <span *ngIf="city.touched && city.invalid">
+            <small *ngIf="city.hasError('required')" class="form-text text-danger">Required Input, please inpue a
+              value</small>
+            <small *ngIf="city.hasError('min')" class="form-text text-danger">must be not less than 1 </small>
+          </span>
+                </div>
+
+            </div>
+
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="street">Street</label>
+                    <input type="string" class="form-control" name="street" formControlName="street" id="street">
+
+                    <span *ngIf="street.touched && street.invalid">
+            <small *ngIf="street.hasError('required')" class="form-text text-danger">Required Input, please inpue
+              a
+              value</small>
+            <small *ngIf="street.hasError('min')" class="form-text text-danger">must be not less than 1 </small>
+          </span>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        <!-- <button type="submit" [disabled]="!MainForm.valid" class="btn btn-primary">Submit</button> -->
+    </form>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="mx-auto">
+    <button class="btn btn-outline-secondary mx-2" (click)="CloseModal(false)">Close</button>
+    <button [disabled]="!MainForm.valid" type="submit" form="MainForm" class="btn btn-outline-primary">Save</button>
+</mat-dialog-actions>

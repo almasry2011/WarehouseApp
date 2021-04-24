@@ -1,0 +1,10 @@
+<ng-select [items]="data" [virtualScroll]="true" [loading]="loading" [bindLabel]="BindLabel" [bindValue]="BindValue" [placeholder]="Placeholder" [readonly]="readonly" appendTo="body" (scroll)="onScroll($event)" (scrollToEnd)="onScrollToEnd()" [closeOnSelect]="true"
+    [searchable]="true" [(ngModel)]="SelectedItem" [searchFn]="customSearchFn" (change)="onChange($event)">
+    <!--  <ng-template ng-header-tmp>
+        <small class="form-text text-muted">Loaded {{ data.length }} of {{ TotalRecords }}</small
+    >
+</ng-template>
+   <ng-template ng-option-tmp let-item="item" let-index="index">
+    <b>{{ index }}</b> {{ item.name }}
+  </ng-template> -->
+</ng-select>

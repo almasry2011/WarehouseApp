@@ -1,0 +1,149 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+.active {
+    color: #4e73df !important;
+}
+
+.c-nav {
+    color: #83848a;
+}
+
+.invalid-data {
+    border: 2px solid red;
+}
+
+.valid-data {
+    border: 2px solid rgb(19, 92, 4);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+td.dataTables_empty {
+    display: none;
+}
+
+td {
+    padding: 2px !important;
+}
+
+tbody tr {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;
+}
+
+
+/* a.paginate_button {
+  padding: 10px;
+  border: solid 1px;
+  border-radius: 6px;
+  margin: 0px 2px 0px 2px;
+  cursor: pointer;
+} */
+
+div#DataTables_Table_0_length {
+    width: auto;
+    position: absolute;
+    top: -95px;
+    right: -97%;
+    border: solid 1px #ced4da;
+    padding: 3px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+select[name*="DataTables_Table_0_length"] {
+    border-radius: 5px;
+    width: fit-content;
+}
+
+table {
+    text-align: center;
+}
+
+.dataTables_length label {
+    margin: 0px;
+}
+
+.screen-action {
+    flex-direction: unset;
+    right: -11px;
+}
+
+.js-dt-tbl-length {
+    max-width: fit-content;
+    margin: auto 0px 0px 0px;
+}
+
+div.dataTables_wrapper div.dataTables_processing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90px;
+    height: 88px;
+    margin-left: -100px;
+    margin-top: -26px;
+    text-align: center;
+    background-image: url(https://etendering.tenderboard.gov.om/product/images/momploading2.gif);
+    background-size: cover;
+    padding: 1em 0;
+    text-indent: -9999px;
+}
+
+.ajs-message.ajs-success.ajs-visible {
+    color: black;
+}
+
+form input.ng-touched.ng-invalid,
+form textarea.ng-touched.ng-invalid {
+    border: solid red 1px;
+    border-color: #dc3545;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+form input.ng-dirty.ng-valid,
+textarea.ng-dirty.ng-valid {
+    border-color: #00ee47;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+p-dropdown.form-control {
+    display: contents !important;
+}
+
+.p-dropdown {
+    width: 100% !important;
+}
+
+.ng-dropdown-panel .scroll-host {
+    max-height: 100px !important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items {
+    max-height: 100px !important;
+}
+
+a.active span {
+    color: white;
+}
+
+a.nav-link span {
+    color: #d2d2d2;
+}

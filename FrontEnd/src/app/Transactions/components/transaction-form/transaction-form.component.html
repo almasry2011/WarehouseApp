@@ -1,0 +1,88 @@
+<span>
+  <h2 mat-dialog-title>{{ title }}</h2>
+  <button
+    type="button"
+    class="close"
+    (click)="CloseModal(false)"
+    aria-label="Close"
+  >
+    <span aria-hidden="true">&times;</span>
+</button>
+</span>
+
+<mat-dialog-content>
+    <form id="MainForm" [formGroup]="MainForm" (ngSubmit)="OnFormSubmit()">
+        <div class="row mb-3 p-3 border rounded bg-light">
+            <label class="ng-star-inserted">Partner Name</label>
+            <app-app-select class="w-100" (selectedOptionChange)="onPartnerChangedEvent($event)" [Service]="PartnerSvc" [BindLabel]="PartnerBindedName" [BindValue]="PartnerBindedValue" [Placeholder]="PartnerPlaceholder" formControlName="partnerId" name="partnerId"
+                ngDefaultControl [readonly]="PartnerReadOnly"></app-app-select>
+
+            <div *ngIf="SelectedPartener" class="alert alert-primary w-100 mt-2" role="alert">
+                <div class="row part-address text-info">
+                    {{ SelectedPartener._address }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3 p-3 border rounded bg-light">
+            <label class="ng-star-inserted">Product Name</label>
+            <app-app-select class="w-100" (selectedOptionChange)="onProductChangedEvent($event)" [Service]="prodSvc" [BindLabel]="ProductBindedName" [BindValue]="ProductBindedValue" [Placeholder]="ProductPlaceholder" [disabled]="!partnerId.valid" [clearOnSelect]="true"
+                [readonly]="false"></app-app-select>
+        </div>
+
+        <div formArrayName="_transactionLines" *ngFor="
+        let item of MainForm.get('_transactionLines')['controls'];
+        let i = index
+      ">
+            <div class="row" [formGroupName]="i">
+                <input class="form-control" type="hidden" formControlName="productId" />
+
+                <div class="form-group col-5">
+                    <label *ngIf="i == 0">Product Name</label>
+                    <input class="form-control" formControlName="productName" />
+                </div>
+
+                <div class="form-group col-2">
+                    <label *ngIf="i == 0">unitPrice</label>
+                    <input type="number" class="form-control" formControlName="unitPrice" placeholder="Item unitPrice" />
+                </div>
+
+                <div class="form-group col-2">
+                    <label *ngIf="i == 0">quantity</label>
+                    <input type="number" class="form-control" (change)="CalculateTotal(i)" formControlName="quantity" />
+                </div>
+
+                <div class="form-group col-2">
+                    <label *ngIf="i == 0">total</label>
+                    <input type="text" class="form-control" formControlName="total" />
+                </div>
+
+                <button (click)="removeItem(i)" type="button" class="btn btn-outline-danger">
+          <i class="fa fa-trash-alt"></i>
+        </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h3 class="total">
+                    Transaction total:
+                    <b class="price text-success"> {{ total.value }}$</b>
+                </h3>
+                <div class="form-group d-none">
+                    <label for="total">Total </label>
+                    <input type="text" class="form-control total" name="total" formControlName="total" id="total" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="mx-auto">
+        <button class="btn btn-outline-secondary mx-2" (click)="CloseModal(false)">
+      Close
+    </button>
+        <button [disabled]="!MainForm.valid" type="submit" form="MainForm" class="btn btn-outline-primary">
+      Save
+    </button>
+    </div>
+</mat-dialog-content>

@@ -1,0 +1,131 @@
+ng new --skipTests
+npm install bootstrap --save to add to pakage.json autom
+
+
+npm install @fortawesome/angular-fontawesome --save 
+
+
+
+npm install datatables.net-buttons --save
+npm install datatables.net-buttons-dt --save
+npm install @types/datatables.net-buttons --save-dev
+npm install jszip --save
+
+
+ng generate component nav-bar
+
+ng generate component /property/property-card
+ng generate component /property/property-list
+
+
+ng generate component /property/add-property 
+ng generate component /property/add-details 
+
+ng generate component user/register 
+ng generate component user/login 
+
+
+git init
+
+git remote add origin https://github.com/almasry2011/HSPA.git
+git push -u origin main
+
+
+ng g s services/housing 
+ng g s services/user 
+ng g s services/alertify 
+ng g s services/auth 
+
+ng g s property/property-details/PropertyDetailResolver
+
+ng g i model/User 
+
+
+ng serve --open 
+ng update @angular/cli @angular/core
+
+
+
+
+
+core/components
+
+ng generate component /core/components/header
+ng generate component /core/components/footer
+ng generate component /core/components/sidebar
+ng generate component /core/components/PageNotFound
+
+ng generate component /core/components/Base
+ng generate component /core/components/ConfirmDialog
+
+ng generate component /core/components/AppSelect
+
+ng generate module /core/Auth --routing
+ng generate component /core/Auth/components/login
+ng generate component /core/Auth/components/register
+ng generate component /core/Auth/components/forgot-password
+
+ng g s /core/Interceptor/http-Interceptor
+
+ng g s /core/Interceptor/Error-Interceptor 
+ng generate module /core/core
+
+
+ng g s /core/Auth/services/auth 
+
+ng g i /core/Auth/models/loginRequestModel
+ng g i /core/Auth/models/loginResponseModel
+
+ng g i /core/Auth/models/RegisterRequestModel
+
+ng g i /core/models/SearchCriteria
+
+ng g i /core/models/PagedResponse
+
+ng add @angular/material
+
+ng g m /core/Auth/AngularMaterials/angular-material.module.ts
+
+
+ng generate module /products/product --routing
+ng generate component /products/components/ProductForm
+ng generate component /products/components/ProductCreate
+ng generate component /products/components/ProductEdit
+ng generate component /products/components/ProductIndex
+ng g s /products/services/products 
+ng g i /products/models/IProductCreateModel
+ng g i /products/models/IProductModel
+
+
+
+ng generate module /Partners/Partner --routing
+ng generate component /Partners/components/PartnerForm
+ng generate component /Partners/components/PartnerIndex
+ng g s /Partners/services/Partners 
+ng g i /Partners/models/PartnerModel
+
+
+
+ng generate module /Transactions/Transaction --routing
+ng generate component /Transactions/components/TransactionForm
+ng generate component /Transactions/components/TransactionIndex
+ng g s /Transactions/services/Transactions 
+ng g i /Transactions/models/TransactionModel
+
+
+
+
+- Remove circular references (see previous section).
+- Hide particular properties that clients are not supposed to view.
+- Omit some properties in order to reduce payload size.
+- Flatten object graphs that contain nested objects, to make them more convenient for clients.
+- Avoid "over-posting" vulnerabilities. (See Model Validation for a discussion of over-posting.)
+- Decouple your service layer from your database layer.
+
+DTO will help us to resolve all the above issues. In this video we will understand it in details.
+
+
+patch partial update
+put complete updar
+
+

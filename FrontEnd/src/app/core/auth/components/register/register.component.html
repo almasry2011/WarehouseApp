@@ -1,0 +1,99 @@
+<div class="container">
+    <ul *ngIf="errors.length>0" class="alert alert-danger" role="alert">
+        <li *ngFor="let item of errors">{{item}}</li>
+    </ul>
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-7 mx-auto">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                        </div>
+                        <form #registerForm="ngForm" (ngSubmit)="Register()" class="user">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" minlength="3" required [ngClass]="{'invalid-data': firstName.invalid && firstName.touched, 'valid-data': firstName.valid && firstName.touched}"
+                                        [(ngModel)]="model.firstName" placeholder="First Name">
+                                    <div *ngIf="firstName.invalid && firstName.touched">
+                                        <span style="color: red;">Please Enter Value.</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" minlength="3" required [ngClass]="{'invalid-data': lastName.invalid && lastName.touched, 'valid-data': lastName.valid && lastName.touched}"
+                                        [(ngModel)]="model.lastName" placeholder="Last Name">
+                                    <div *ngIf="lastName.invalid && lastName.touched">
+                                        <span style="color: red;">Please Enter Value.</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 mt-3">
+                                    <input type="text" class="form-control form-control-user" name="userName" [(ngModel)]="model.userName" #userName="ngModel" minlength="3" required [ngClass]="{'invalid-data': userName.invalid && userName.touched, 'valid-data': userName.valid && userName.touched}"
+                                        [(ngModel)]="model.userName" placeholder="User Name">
+                                    <div *ngIf="userName.invalid && userName.touched">
+                                        <span style="color: red;">Please Enter Value.</span>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control form-control-user" name="email" [(ngModel)]="model.email" #email="ngModel" minlength="3" required [ngClass]="{'invalid-data': email.invalid && email.touched, 'valid-data': email.valid && email.touched}" placeholder="email">
+                                <div *ngIf="email.invalid && email.touched">
+                                    <span style="color: red;">Please Enter Value.</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" class="form-control form-control-user" name="password" [(ngModel)]="model.password" #password="ngModel" minlength="3" required [ngClass]="{'invalid-data': password.invalid && password.touched, 'valid-data': password.valid && password.touched}"
+                                        [(ngModel)]="model.password" placeholder="password">
+                                    <div *ngIf="password.invalid && password.touched">
+                                        <span style="color: red;">Please Enter Value.</span>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control form-control-user" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" minlength="3" required [ngClass]="{'invalid-data': confirmPassword.invalid && confirmPassword.touched, 'valid-data': confirmPassword.valid && confirmPassword.touched}"
+                                        [(ngModel)]="model.confirmPassword" placeholder="confirmPassword">
+                                    <div *ngIf="confirmPassword.invalid && confirmPassword.touched  ">
+                                        <span style="color: red;">Please Enter Value.</span>
+                                    </div>
+
+                                    <div *ngIf="confirmPassword.value !=password.value && confirmPassword.touched ">
+                                        <span style="color: red;">Password Not Matched</span>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <button [disabled]="!registerForm.valid" type="submit" class="btn btn-primary btn-user btn-block">
+                Register Account </button>
+
+                            <hr>
+                            <a href="index.html" class="btn btn-google btn-user btn-block">
+                                <i class="fab fa-google fa-fw"></i> Register with Google
+                            </a>
+                            <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                            </a>
+                        </form>
+                        <hr>
+                        <div class="text-center">
+                            <a class="small" [routerLink]="['/auth/password-reset']" routerLinkActive="active">Forgot Password?</a>
+                        </div>
+                        <div class="text-center">
+                            <a class="small" [routerLink]="['/auth/login']" routerLinkActive="active">Already have an account?
+                Login!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
